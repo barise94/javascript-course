@@ -6,6 +6,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 
 updateScoreElement();
 
+
 /*
 if (!score) {
   score = {
@@ -15,41 +16,45 @@ if (!score) {
   };
 }
 */
-
 let isAutoPlaying = false;
 let intervalId;
 
-//const autoPlay = () => {
 
-//};
-function autoPlay() {
-  if (!isAutoPlaying) {
+
+function autoPlay () {
+  if(!isAutoPlaying) {
     intervalId = setInterval(() => {
       const playerMove = pickComputerMove();
       playGame(playerMove);
     }, 1000);
     isAutoPlaying = true;
-
   } else {
     clearInterval(intervalId);
     isAutoPlaying = false;
   }
 }
 
-document.querySelector('.js-rock-button')
-  .addEventListener('click', () => {
-    playGame('rock');
-  });
 
-document.querySelector('.js-paper-button')
-  .addEventListener('click', () => {
-    playGame('paper');
-  });
+document.querySelector('.js-auto-play-button').addEventListener('click', () => {
+  autoPlay();
+})
 
-document.querySelector('.js-scissors-button')
-  .addEventListener('click', () => {
-    playGame('scissors');
-  });
+document.querySelector('.js-rock-button').addEventListener('click',() => {playGame('rock');
+})
+
+document.querySelector('.js-scissors-button').addEventListener('click',() => {playGame('scissors');
+})
+
+document.querySelector('.js-paper-button').addEventListener('click',() => {playGame('paper');
+})
+
+document.querySelector('.js-reset-button').addEventListener('click', () => {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem('score');
+  updateScoreElement();
+})
 
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'r') {
@@ -60,6 +65,9 @@ document.body.addEventListener('keydown', (event) => {
     playGame('scissors');
   }
 });
+
+
+
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
@@ -108,7 +116,8 @@ function playGame(playerMove) {
 
   document.querySelector('.js-result').innerHTML = result;
 
-  document.querySelector('.js-moves').innerHTML = `You
+  document.querySelector('.js-moves').innerHTML
+  = `You 
 <img src="images/${playerMove}-emoji.png" class="move-icon">
 <img src="images/${computerMove}-emoji.png" class="move-icon">
 Computer`;
@@ -118,6 +127,7 @@ function updateScoreElement() {
   document.querySelector('.js-score')
     .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
+
 
 function pickComputerMove() {
   const randomNumber = Math.random();

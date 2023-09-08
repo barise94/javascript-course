@@ -3,7 +3,7 @@ body {
 }
 
 .todo-grid,
-.todo-input-grid {
+.todo-input-grid{
   display: grid;
   grid-template-columns: 200px 150px 100px;
   column-gap: 10px;
@@ -11,18 +11,18 @@ body {
   align-items: center;
 }
 
-.todo-input-grid {
+.todo-input-grid{
   margin-bottom: 10px;
   align-items: stretch;
 }
 
-.name-input,
+.add-input,
 .due-date-input {
   font-size: 15px;
   padding: 6px;
 }
 
-.add-todo-button {
+.add-button {
   background-color: green;
   color: white;
   border: none;
@@ -30,12 +30,11 @@ body {
   cursor: pointer;
 }
 
-.delete-todo-button {
+.delete-button {
   background-color: darkred;
   color: white;
   border: none;
   font-size: 15px;
   cursor: pointer;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
 }

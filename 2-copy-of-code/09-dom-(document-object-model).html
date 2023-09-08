@@ -5,28 +5,31 @@
   </head>
   <body>
     <button>hello</button>
-    <button class="js-button">Second button</button>
+    <button class="js-button">second button</button>
 
     <script>
+
       console.log(document.querySelector('button').innerHTML);
       document.querySelector('button')
-        .innerHTML = 'Changed';
+        .innerHTML = 'changed';
 
       const buttonElement = document.querySelector('.js-button');
       console.log(buttonElement);
       
       /*
       console.log(document.title);
-      document.title = 'Changed';
+      document.title = 'changed';
+
+      console.log(document.title);
 
       console.log(document.body);
       console.log(typeof document.body);
 
       console.log(document.body.innerHTML);
       document.body.innerHTML = '<button>Good job!</button>';
-      */
+      */ 
       
-      /*
+      /* 
       document.body.innerHTML = 'hello';
       document.title = 'Good job!';
       */

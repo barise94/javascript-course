@@ -37,6 +37,7 @@
       };
 
       updateScoreElement();
+      
 
       /*
       if (!score) {
@@ -95,13 +96,15 @@
 
         document.querySelector('.js-result').innerHTML = result;
 
-        document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+        document.querySelector('.js-moves').innerHTML
+        = `You : ${playerMove} - ${computerMove} : Computer`;
       }
-
+      
       function updateScoreElement() {
         document.querySelector('.js-score')
           .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
       }
+
 
       function pickComputerMove() {
         const randomNumber = Math.random();
@@ -118,6 +121,7 @@
 
         return computerMove;
       }
+      
     </script>
   </body>
 </html>
